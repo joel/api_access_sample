@@ -12,10 +12,13 @@ class ContactsController < ApplicationController
    # GET Make request to provider for user authorization
    #
    def provider
-     api = Oauth::Contacts.get_provider(params[:provider])
+     provider = current_user.providers.where(:name => params[:provider]).first
+     api_access = provider.oauth_contacts
+
+     puts "api_access => #{api_access}"
 
      respond_with do |format|
-       format.html { redirect_to api.authorize_url }
+       format.html { redirect_to api_access.authorize_url }
      end
    end
 
@@ -23,8 +26,11 @@ class ContactsController < ApplicationController
    # POST Call back from provider for get authorization of api access
    #
    def authorize
-     api = Oauth::Contacts.get_provider(params[:provider])
+     provider = current_user.providers.where(:name => params[:provider]).first
+     api_access = provider.oauth_contacts
      session[:code] = params[:code]
+
+     puts "api_access => #{api_access}"
 
      respond_with do |format|
        format.html { redirect_to contacts_path(:provider => params[:provider]) }
@@ -35,10 +41,13 @@ class ContactsController < ApplicationController
    # GET getting contacts from authorized provider
    #
    def contacts
-     api = Oauth::Contacts.get_provider(params[:provider])
-     api.code = session.delete(:code)
+     provider = current_user.providers.where(:name => params[:provider]).first
+     api_access = provider.oauth_contacts
+     api_access.code = session.delete(:code) # cleaning session
 
-     @contacts = api.contacts
+     puts "api_access => #{api_access}"
+
+     @contacts = api_access.contacts
      respond_with(@contacts)
    end
 end
