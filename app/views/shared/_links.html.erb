@@ -1,0 +1,6 @@
+<%- if user_signed_in? -%>
+	<li><%= link_to "#{current_user.email} log out ?", '/users/sign_out', :method => :delete %></li>
+<%- else -%>
+	<li><%= link_to 'Sign In', '/users/sign_in' %></li>
+<%- end -%>
+<li><%= link_to 'Sign Up', '/users/sign_up' %></li>

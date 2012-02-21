@@ -1,5 +1,7 @@
 Apiaccess::Application.routes.draw do
 
+  devise_for :users
+
   root :to => "contacts#providers"
 
   get 'contacts/providers' => "contacts#providers"

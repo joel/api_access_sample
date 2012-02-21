@@ -37,7 +37,8 @@
           <a class="brand" href="#">Apiaccess</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Contacts", root_path  %></li>
+							<%= render :partial => 'shared/links' %>
+              <li><%= link_to "Contacts", root_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

@@ -8,6 +8,8 @@ gem 'oauth-contacts', '~> 0.0.1'
 gem "rails_config"
 gem 'multi_json', '~> 1.0.3'
 
+gem 'devise'
+
 group :development do
   # gem "twitter-bootstrap-rails"
   gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
