@@ -1,0 +1,11 @@
+<h1>Contacts for X</h1>
+
+<%- if @contacts -%>
+	<ul>
+		<%- @contacts['contacts'].each do |contact| -%>
+			<li><%= "#{contact[:name]}, #{contact[:email]}, #{contact[:emails]}" %></li>
+		<%- end -%>
+	</ul>
+<%- else -%>
+	<p>No data</p>
+<%- end -%>

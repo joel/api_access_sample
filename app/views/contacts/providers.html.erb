@@ -1,0 +1,8 @@
+<h1>Providers</h1>
+
+<p>Getting contacts from</p>
+<ul>
+	<%- Oauth::Contacts::SUPPORTED_PROVIDERS.each do |provider| -%>
+		<li><%= link_to provider, "/contacts/#{provider}/provider" %></li>
+	<%- end -%>
+</ul>

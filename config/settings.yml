@@ -1,0 +1,12 @@
+oauth:
+  contacts:
+    google:
+      callback_url: "http://localhost.com:3000/contacts/google/authorize"
+      key: '266546235868.apps.googleusercontent.com'
+      secret: 'KMJSos1SvGlgZpwdU5sNPfp4'
+      scopes: ['https://www.google.com/m8/feeds', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
+    live:
+      callback_url: "http://test.stootie.com:3000/contacts/live/authorize"
+      key: '0000000048085E96'
+      secret: 'xbposYsCRbYX0KzMLT3sl3PZgeav47dG'
+      scopes: ['wl.basic', 'wl.emails']
